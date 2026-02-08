@@ -6,18 +6,15 @@ import DocumentUploadForm from '../components/verification/DocumentUploadForm';
 import AdminDocumentCard from '../components/verification/AdminDocumentCard';
 
 const VerificationDashboard = () => {
-//   const [activeTab, setActiveTab] = useState('user');
-const [activeTab, setActiveTab] = useState('upload'); 
-  
+  const [activeTab, setActiveTab] = useState('upload');
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [userId] = useState(1); // TODO: Get from auth
+  const [userId] = useState(1);
 
   const fetchDocuments = async () => {
     setLoading(true);
     try {
       const data = await verificationAPI.getUserDocuments(userId);
-      
       setDocuments(data);
     } catch (error) {
       console.error('Error:', error);
@@ -53,25 +50,56 @@ const [activeTab, setActiveTab] = useState('upload');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
-      <div className="bg-green-600 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold flex items-center gap-3">
-            <FileText className="w-8 h-8" />
+    <div style={{ minHeight: '100vh', backgroundColor: '#F0FDF4' }}>
+      {/* Full-Width Green Header - NO LOGO HERE */}
+      <div style={{
+        backgroundColor: '#16A34A',
+        color: '#FFFFFF',
+        padding: '24px 0',
+        width: '100%'
+      }}>
+        <div style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <FileText style={{ width: '32px', height: '32px' }} />
+          <h1 style={{ fontSize: '28px', fontWeight: 'bold', margin: 0 }}>
             Document Verification System
           </h1>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 mt-6">
-        <div className="flex gap-2 border-b border-green-200">
+      {/* Tabs - On light green background */}
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 16px',
+        marginTop: '24px'
+      }}>
+        <div style={{
+          display: 'flex',
+          gap: '8px',
+          borderBottom: '1px solid #BBF7D0'
+        }}>
           {['user', 'upload', 'admin'].map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 font-medium transition-all ${
-                activeTab === tab ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-500 hover:text-green-600'
-              }`}
+              style={{
+                padding: '12px 24px',
+                fontWeight: '500',
+                backgroundColor: 'transparent',
+                border: 'none',
+                borderBottom: activeTab === tab ? '3px solid #16A34A' : '3px solid transparent',
+                color: activeTab === tab ? '#16A34A' : '#6B7280',
+                cursor: 'pointer',
+                fontSize: '16px',
+                transition: 'all 0.3s'
+              }}
             >
               {tab === 'user' ? 'My Documents' : tab === 'upload' ? 'Upload New' : 'Admin Panel'}
             </button>
@@ -79,14 +107,27 @@ const [activeTab, setActiveTab] = useState('upload');
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Content */}
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '32px 16px'
+      }}>
         {activeTab === 'upload' && <DocumentUploadForm userId={userId} onSuccess={() => setActiveTab('user')} />}
         {activeTab === 'user' && <DocumentList documents={documents} loading={loading} onDelete={handleDelete} />}
         {activeTab === 'admin' && (
-          <div className="space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {loading ? (
-              <div className="text-center py-12">
-                <div className="animate-spin w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full mx-auto"></div>
+              <div style={{ textAlign: 'center', padding: '48px 0' }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  border: '4px solid #16A34A',
+                  borderTopColor: 'transparent',
+                  borderRadius: '50%',
+                  margin: '0 auto',
+                  animation: 'spin 1s linear infinite'
+                }}></div>
               </div>
             ) : (
               documents.map(doc => <AdminDocumentCard key={doc.docId} document={doc} onUpdate={fetchAllDocuments} />)
