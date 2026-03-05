@@ -1,0 +1,22 @@
+.messages-header {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin: 0 0 0.5rem;
+}
+
+.section-title svg {
+  color: #10b981;
+}
+
+.section-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}

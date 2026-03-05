@@ -1,0 +1,567 @@
+/* styles/Navigation.css - Updated with Emerald Green Cube */
+
+/* Navigation Bar Base */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease;
+  padding: 1.25rem 0;
+}
+
+.nav-bar-scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.nav-bar-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo Section */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+}
+
+/* 3D Cube Container */
+.logo-cube-container {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* The 3D Cube */
+.logo-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.1s linear;
+}
+
+/* Cube Faces - Emerald Green */
+.logo-cube .cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #10b981, #059669); /* Emerald green gradient */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.1),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.1),
+    inset 0 3px 5px rgba(255, 255, 255, 0.5);
+  backface-visibility: visible;
+  overflow: hidden;
+}
+
+/* Cube Face Logos - White/Silver version for better contrast on green */
+.cube-face-logo {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.logo-cube-container:hover .cube-face-logo {
+  transform: scale(1.05);
+}
+
+/* Cube Face Positions */
+.logo-cube .front  { transform: translateZ(24px); }
+.logo-cube .back   { transform: rotateY(180deg) translateZ(24px); }
+.logo-cube .right  { transform: rotateY(90deg) translateZ(24px); }
+.logo-cube .left   { transform: rotateY(-90deg) translateZ(24px); }
+.logo-cube .top    { transform: rotateX(90deg) translateZ(24px); }
+.logo-cube .bottom { transform: rotateX(-90deg) translateZ(24px); }
+
+/* Cube Glow Effect - Matching emerald */
+.cube-glow {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  border-radius: 15px;
+  filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.logo-cube-container:hover .cube-glow {
+  opacity: 1;
+}
+
+/* Shine Effect */
+.logo-cube-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.logo-cube-container:hover::after {
+  left: 100%;
+}
+
+/* Logo Text */
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.nav-logo-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #10b981;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover .nav-logo-title {
+  color: #059669;
+}
+
+.nav-logo-slogan {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover .nav-logo-slogan {
+  opacity: 1;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 0;
+  position: relative;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-link:hover {
+  color: #10b981;
+}
+
+.nav-link.active {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #10b981;
+  border-radius: 3px;
+  animation: slideIn 0.3s ease;
+}
+
+/* Right Side Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.nav-btn-signin {
+  background: transparent;
+  color: #4b5563;
+  border: 1.5px solid #e5e7eb;
+}
+
+.nav-btn-signin:hover {
+  background: #f9fafb;
+  color: #10b981;
+  border-color: #10b981;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.nav-btn-register {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.nav-btn-register:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+/* Mobile Menu Button */
+.nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #4b5563;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.nav-mobile-btn:hover {
+  background: #f3f4f6;
+  color: #10b981;
+}
+
+/* Mobile Menu */
+.nav-mobile-menu {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  right: 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 999;
+}
+
+.nav-mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-mobile-menu-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-mobile-link {
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.nav-mobile-link:hover {
+  background: #f0fdf4;
+  color: #10b981;
+}
+
+.nav-mobile-link.active {
+  background: #f0fdf4;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.nav-mobile-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 1rem 0;
+}
+
+.nav-mobile-btn-auth {
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: #4b5563;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-mobile-btn-auth:hover {
+  background: #f3f4f6;
+  color: #10b981;
+}
+
+.nav-mobile-btn-register {
+  background: #10b981;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.nav-mobile-btn-register:hover {
+  background: #059669;
+  color: white;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-btn-signin,
+  .nav-btn-register {
+    display: none;
+  }
+
+  .nav-mobile-btn {
+    display: block;
+  }
+
+  .nav-actions {
+    gap: 0;
+  }
+
+  .nav-bar-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-cube-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-cube .front,
+  .logo-cube .back,
+  .logo-cube .right,
+  .logo-cube .left,
+  .logo-cube .top,
+  .logo-cube .bottom {
+    transform: translateZ(20px);
+  }
+  
+  .logo-cube .back { transform: rotateY(180deg) translateZ(20px); }
+  .logo-cube .right { transform: rotateY(90deg) translateZ(20px); }
+  .logo-cube .left { transform: rotateY(-90deg) translateZ(20px); }
+  .logo-cube .top { transform: rotateX(90deg) translateZ(20px); }
+  .logo-cube .bottom { transform: rotateX(-90deg) translateZ(20px); }
+  
+  .nav-logo-slogan {
+    display: none;
+  }
+  
+  .nav-logo-title {
+    font-size: 1.3rem;
+  }
+  
+  .nav-bar-container {
+    padding: 0 1.5rem;
+  }
+  
+  .nav-mobile-menu {
+    top: 82px;
+  }
+  
+  .nav-mobile-menu-container {
+    padding: 1.25rem;
+  }
+  
+  .nav-mobile-link,
+  .nav-mobile-btn-auth {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .nav-bar-scrolled {
+    background: rgba(17, 24, 39, 0.98);
+    border-bottom-color: rgba(16, 185, 129, 0.2);
+  }
+  
+  /* Dark mode cube faces - slightly darker emerald */
+  .logo-cube .cube-face {
+    background: linear-gradient(145deg, #059669, #047857);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .cube-face-logo {
+    filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  }
+  
+  .nav-link {
+    color: #9ca3af;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #10b981;
+  }
+  
+  .nav-btn-signin {
+    color: #9ca3af;
+    border-color: #374151;
+  }
+  
+  .nav-btn-signin:hover {
+    background: #1f2937;
+    color: #10b981;
+    border-color: #10b981;
+  }
+  
+  .nav-logo-slogan {
+    color: #9ca3af;
+  }
+  
+  .nav-mobile-menu {
+    background: #1f2937;
+    border-bottom-color: #374151;
+  }
+  
+  .nav-mobile-link {
+    color: #9ca3af;
+  }
+  
+  .nav-mobile-link:hover,
+  .nav-mobile-link.active {
+    background: #374151;
+    color: #10b981;
+  }
+  
+  .nav-mobile-divider {
+    background: #374151;
+  }
+  
+  .nav-mobile-btn-auth {
+    color: #9ca3af;
+  }
+  
+  .nav-mobile-btn-auth:hover {
+    background: #374151;
+    color: #10b981;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-cube,
+  .cube-glow,
+  .logo-cube-container::after,
+  .nav-link.active::after,
+  .nav-btn,
+  .nav-mobile-menu {
+    animation: none;
+    transition: none;
+  }
+  
+  .logo-cube {
+    transform: rotateX(10deg) rotateY(20deg) !important;
+  }
+  
+  .logo-cube-container:hover .cube-face-logo {
+    transform: none;
+  }
+  
+  .nav-btn:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .nav-bar {
+    display: none;
+  }
+}

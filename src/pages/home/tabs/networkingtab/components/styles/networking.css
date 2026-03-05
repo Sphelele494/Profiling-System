@@ -1,0 +1,95 @@
+/* networking.css - Main stylesheet */
+
+@import "../Header/NetworkingHeader.css";     
+@import "../Filters/Filters.css";           
+@import "../Categories/Categories.css";  
+@import "../Tips/Tips.css"; 
+@import "../Stats/Stats.css";
+
+
+.networking-tab {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .jobs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .networking-tab {
+    padding: 1rem;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .category-tabs {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .application-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-list {
+    grid-template-columns: 1fr;
+  }
+
+  .job-actions {
+    flex-wrap: wrap;
+  }
+
+  .job-action-btn {
+    flex: 1;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.job-card {
+  animation: slideIn 0.3s ease;
+}
+
+/* Print Styles */
+@media print {
+  .filters-section,
+  .category-tabs,
+  .job-actions,
+  .refresh-tips-btn {
+    display: none !important;
+  }
+
+  .job-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}

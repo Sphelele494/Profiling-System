@@ -1,0 +1,154 @@
+.grants-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.grants-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.grant-item {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.3s ease;
+}
+
+.grant-item:last-child {
+  border-bottom: none;
+}
+
+.grant-item:hover {
+  background: #f9fafb;
+}
+
+.grant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.grant-header h5 {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.grant-amount {
+  font-weight: 600;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+}
+
+.grant-description {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.grant-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.grant-eligibility {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.eligible {
+  color: #10b981;
+}
+
+.ineligible {
+  color: #9ca3af;
+}
+
+.grant-deadline {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+}
+
+.grant-probability {
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: capitalize;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.grant-probability.high {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.grant-probability.medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.grant-probability.low {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.grant-documents {
+  margin-bottom: 1rem;
+}
+
+.doc-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.doc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.doc-tag {
+  padding: 0.15rem 0.5rem;
+  background: #f3f4f6;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #4b5563;
+}
+
+.apply-grant-btn {
+  width: 100%;
+  padding: 0.6rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-grant-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.apply-grant-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

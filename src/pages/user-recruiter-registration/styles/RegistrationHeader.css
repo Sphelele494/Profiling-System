@@ -1,0 +1,343 @@
+/* RegistrationHeader.css - Clean version with only 3D cube animation */
+
+.registration-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.registration-header .header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Logo Link */
+.registration-header .logo-link {
+  text-decoration: none;
+  outline: none;
+}
+
+.registration-header .logo-link:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* Logo Container */
+.registration-header .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Cube Container - 3D Animation Only */
+.registration-header .cube-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  perspective: 1000px;
+  margin-right: 5px;
+}
+
+.registration-header .cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
+}
+
+.registration-header .cube-face {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  backface-visibility: visible;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+  overflow: hidden;
+}
+
+/* Different shades for each cube face */
+.registration-header .cube-face.front {
+  background: linear-gradient(145deg, #065f46, #047857);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: translateZ(30px);
+}
+.registration-header .cube-face.back {
+  background: linear-gradient(145deg, #047857, #059669);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotateY(180deg) translateZ(30px);
+}
+.registration-header .cube-face.right {
+  background: linear-gradient(145deg, #059669, #10b981);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotateY(90deg) translateZ(30px);
+}
+.registration-header .cube-face.left {
+  background: linear-gradient(145deg, #10b981, #34d399);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotateY(-90deg) translateZ(30px);
+}
+.registration-header .cube-face.top {
+  background: linear-gradient(145deg, #064e3b, #065f46);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotateX(90deg) translateZ(30px);
+}
+.registration-header .cube-face.bottom {
+  background: linear-gradient(145deg, #0f766e, #065f46);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotateX(-90deg) translateZ(30px);
+}
+
+.registration-header .cube-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+/* Logo Text */
+.registration-header .logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-header .logo-main {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.registration-header .logo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #065f46, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.registration-header .logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
+}
+
+.registration-header .logo-slogan {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  color: #4b5563;
+}
+
+.registration-header .logo-slogan svg {
+  color: #10b981;
+}
+
+/* Header Right Section - Keep all buttons */
+.registration-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.registration-header .header-contact {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.registration-header .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.registration-header .contact-item:hover {
+  color: #10b981;
+}
+
+.registration-header .contact-item svg {
+  color: #10b981;
+}
+
+/* Login Prompt - Keep button */
+.registration-header .login-prompt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 40px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.registration-header .login-prompt:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.registration-header .prompt-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.registration-header .login-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: #10b981;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.registration-header .login-link:hover {
+  background: #059669;
+  transform: translateX(3px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+.registration-header .login-link svg {
+  transition: transform 0.3s ease;
+}
+
+.registration-header .login-link:hover svg:last-child {
+  transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .registration-header {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .registration-header .header-contact {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .registration-header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .registration-header .cube-container {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .registration-header .cube-face {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .registration-header .cube-face.front {
+    transform: translateZ(25px);
+  }
+  .registration-header .cube-face.back {
+    transform: rotateY(180deg) translateZ(25px);
+  }
+  .registration-header .cube-face.right {
+    transform: rotateY(90deg) translateZ(25px);
+  }
+  .registration-header .cube-face.left {
+    transform: rotateY(-90deg) translateZ(25px);
+  }
+  .registration-header .cube-face.top {
+    transform: rotateX(90deg) translateZ(25px);
+  }
+  .registration-header .cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(25px);
+  }
+  
+  .registration-header .cube-logo {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .registration-header .logo-title {
+    font-size: 1.25rem;
+  }
+  
+  .registration-header .logo-badge {
+    font-size: 0.6rem;
+  }
+  
+  .registration-header .logo-slogan {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registration-header .logo-container {
+    gap: 0.5rem;
+  }
+  
+  .registration-header .logo-slogan {
+    display: none;
+  }
+  
+  .registration-header .login-prompt {
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .registration-header .prompt-text {
+    display: none;
+  }
+  
+  .registration-header .login-link {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .registration-header .cube {
+    animation: none !important;
+  }
+  
+  .registration-header .cube {
+    transform: rotateX(15deg) rotateY(30deg) !important;
+  }
+}

@@ -1,0 +1,43 @@
+/* messages.css - Main stylesheet */
+
+/* @import "../Header/MessagesHeader.css"; */
+
+@import "../Conversations/Conversations.css";
+@import "../Chat/Chat.css";
+@import "../Common/Common.css";
+@import "../EmptyState/EmptyState.css";
+.messages-tab {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 2rem;
+}
+
+.messages-container {
+  display: flex;
+  height: calc(100vh - 200px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .messages-tab {
+    padding: 1rem;
+  }
+
+  .messages-container {
+    flex-direction: column;
+    height: calc(100vh - 150px);
+  }
+
+  .conversations-sidebar {
+    width: 100%;
+    height: 300px;
+  }
+
+  .chat-area {
+    height: calc(100vh - 450px);
+  }
+}

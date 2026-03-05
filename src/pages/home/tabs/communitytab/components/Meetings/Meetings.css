@@ -1,0 +1,89 @@
+.meetings-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.meetings-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.meeting-item {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+.meeting-item:hover {
+  background: #f9fafb;
+  transform: translateX(4px);
+}
+
+.meeting-item:last-child {
+  border-bottom: none;
+}
+
+.meeting-item h5 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.topic {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #10b981;
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.meeting-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.meeting-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meeting-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.facilitator,
+.attendees {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #4b5563;
+}
+
+.join-btn {
+  margin-left: auto;
+  padding: 0.4rem 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}

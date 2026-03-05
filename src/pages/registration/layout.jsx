@@ -1,106 +1,167 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HeartHandshake, Shield, LogOut, ArrowUpRight } from 'lucide-react';
+import { HeartHandshake, Shield, LogOut, ArrowUpRight, Phone, Mail, MapPin, Award, CheckCircle } from 'lucide-react';
 import ReLinkLogo from '../../assets/RelinkLOGO.jpeg';
 
 const RegistrationLayout = ({ children, logoHover, setLogoHover }) => {
   return (
-    <>
+    <div className="registration-layout">
       {/* Header */}
-      <header className="register-header">
-        <div className="header-container">
-          <Link to="/" className="logo-link">
+      <header className="layout-header">
+        <div className="layout-header-container">
+          {/* Logo Section */}
+          <Link to="/" className="layout-logo-link">
             <div 
-              className="logo-container"
+              className="layout-logo-wrapper"
               onMouseEnter={() => setLogoHover(true)}
               onMouseLeave={() => setLogoHover(false)}
             >
-              <div className={`logo-glow ${logoHover ? 'active' : ''}`}></div>
-              <div className="logo-pulse"></div>
-              <div className="logo-orbital">
-                <div className="orbital-ring"></div>
-                <div className="orbital-ring ring-2"></div>
+              <div className={`layout-logo-glow ${logoHover ? 'active' : ''}`}></div>
+              <div className="layout-logo-pulse"></div>
+              <div className="layout-logo-orbital">
+                <div className="layout-orbital-ring"></div>
+                <div className="layout-orbital-ring ring-2"></div>
               </div>
+              
               <img 
                 src={ReLinkLogo} 
                 alt="RE-Link Logo" 
-                className={`logo-image ${logoHover ? 'hover' : ''}`}
+                className={`layout-logo-image ${logoHover ? 'hover' : ''}`}
               />
-              <div className="logo-text">
-                <div className="logo-main">
-                  <h1 className="logo-title">RE-LINK</h1>
-                  <div className="logo-badge">
-                    <Shield size={12} />
+              
+              <div className="layout-logo-text">
+                <div className="layout-logo-title-wrapper">
+                  <h1 className="layout-logo-title">RE-LINK</h1>
+                  <div className="layout-logo-badge">
+                    <Shield size={14} />
                     <span>POPIA Compliant</span>
                   </div>
                 </div>
-                <p className="logo-slogan">
-                  <HeartHandshake size={16} />
+                <p className="layout-logo-slogan">
+                  <HeartHandshake size={18} />
                   <span>Second Chances, Real Connections</span>
                 </p>
               </div>
             </div>
           </Link>
           
-          <div className="header-right">
-            <div className="login-prompt">
-              <span className="prompt-text">Already have an account?</span>
-              <Link to="/login" className="login-link">
-                <LogOut size={16} />
+          {/* Right Section */}
+          <div className="layout-header-right">
+            {/* Contact Info - Desktop Only */}
+            <div className="layout-contact-info">
+              <div className="layout-contact-item">
+                <Phone size={16} />
+                <span>0800 123 456</span>
+              </div>
+              <div className="layout-contact-divider"></div>
+              <div className="layout-contact-item">
+                <Mail size={16} />
+                <span>support@re-link.co.za</span>
+              </div>
+            </div>
+            
+            {/* Sign In Section */}
+            <div className="layout-signin-wrapper">
+              <span className="layout-signin-text">Already registered?</span>
+              <Link to="/login" className="layout-signin-button">
+                <LogOut size={18} />
                 <span>Sign In</span>
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={16} />
               </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="register-main">
-        {children}
+      {/* Main Content Area */}
+      <main className="layout-main">
+        <div className="layout-main-container">
+          {children}
+        </div>
       </main>
 
       {/* Footer */}
-      <footer className="register-footer">
-        <div className="footer-glow"></div>
-        <div className="footer-container">
-          <div className="footer-logo">
-            <div className="footer-logo-container">
-              <img src={ReLinkLogo} alt="RE-Link" className="footer-logo-img" />
-              <div className="footer-logo-glow"></div>
+      <footer className="layout-footer">
+        <div className="layout-footer-gradient"></div>
+        <div className="layout-footer-container">
+          {/* Footer Top Section */}
+          <div className="layout-footer-top">
+            {/* Brand Section */}
+            <div className="layout-footer-brand">
+              <div className="layout-footer-logo-wrapper">
+                <img src={ReLinkLogo} alt="RE-Link" className="layout-footer-logo" />
+                <div className="layout-footer-logo-glow"></div>
+              </div>
+              <div className="layout-footer-brand-text">
+                <h3>RE-LINK</h3>
+                <p>Second Chances, Real Connections</p>
+              </div>
             </div>
-            <div className="footer-logo-text">
-              <h3>RE-LINK</h3>
-              <p className="footer-slogan">Second Chances, Real Connections</p>
-              <p className="footer-partnership">Official Partner: Department of Correctional Services South Africa</p>
+
+            {/* Partner Badge */}
+            <div className="layout-footer-partner">
+              <Award size={20} />
+              <span>Official DCS Partner</span>
             </div>
           </div>
-          <div className="footer-info">
-            <p className="footer-copyright">
-              © {new Date().getFullYear()} RE-Link South Africa. Partnered with Department of Correctional Services.
-            </p>
-            <p className="footer-certs">
-              <span className="footer-cert">
-                <Shield size={14} />
+
+          {/* Footer Middle Section */}
+          <div className="layout-footer-middle">
+            {/* Left Info */}
+            <div className="layout-footer-info">
+              <div className="layout-footer-info-item">
+                <MapPin size={16} />
+                <span>Johannesburg, South Africa</span>
+              </div>
+              <div className="layout-footer-info-item">
+                <Phone size={16} />
+                <span>0800 123 456 (Toll Free)</span>
+              </div>
+              <div className="layout-footer-info-item">
+                <Mail size={16} />
+                <span>support@re-link.co.za</span>
+              </div>
+            </div>
+
+            {/* Right Certifications */}
+            <div className="layout-footer-certifications">
+              <div className="layout-footer-cert">
+                <CheckCircle size={16} />
                 <span>POPIA Compliant</span>
-              </span>
-              <span className="divider">•</span>
-              <span className="footer-cert">
-                <span>B-BBEE Contributor</span>
-              </span>
-              <span className="divider">•</span>
-              <span className="footer-cert">
-                <span>NPO Registration: 123-456</span>
-              </span>
-              <span className="divider">•</span>
-              <span className="footer-cert">
-                <span>DCS Verified Partner</span>
-              </span>
+              </div>
+              <div className="layout-footer-cert">
+                <CheckCircle size={16} />
+                <span>B-BBEE Level 1</span>
+              </div>
+              <div className="layout-footer-cert">
+                <CheckCircle size={16} />
+                <span>NPO: 123-456</span>
+              </div>
+              <div className="layout-footer-cert">
+                <CheckCircle size={16} />
+                <span>DCS Verified</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Bottom Section */}
+          <div className="layout-footer-bottom">
+            <p className="layout-footer-copyright">
+              © {new Date().getFullYear()} RE-LINK South Africa. All rights reserved.
             </p>
+            <div className="layout-footer-links">
+              <Link to="/privacy" className="layout-footer-link">Privacy Policy</Link>
+              <span className="layout-footer-link-divider">•</span>
+              <Link to="/terms" className="layout-footer-link">Terms of Service</Link>
+              <span className="layout-footer-link-divider">•</span>
+              <Link to="/popia" className="layout-footer-link">POPIA Compliance</Link>
+              <span className="layout-footer-link-divider">•</span>
+              <Link to="/dcs" className="layout-footer-link">DCS Partnership</Link>
+            </div>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 

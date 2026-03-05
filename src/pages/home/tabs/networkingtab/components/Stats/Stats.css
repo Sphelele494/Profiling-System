@@ -1,0 +1,109 @@
+.application-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Add this to your existing networking.css file */
+
+.stat-card--loading {
+  position: relative;
+  overflow: hidden;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.stat-card-loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #0066cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.stat-card--clickable {
+  cursor: pointer;
+}
+
+/* Optional: Add different icon background colors for variety */
+.stat-card-icon.blue {
+  background-color: #e6f0ff;
+}
+
+.stat-card-icon.purple {
+  background-color: #f0e6ff;
+}
+
+.stat-card-icon.green {
+  background-color: #e6f9ed;
+}
+
+.stat-card-icon.orange {
+  background-color: #fff0e6;
+}
+
+.stat-card-icon.yellow {
+  background-color: #fef9e6;
+}
+
+.stat-card-icon.red {
+  background-color: #fee6e6;
+}
+
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.stat-card-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+}

@@ -1,0 +1,419 @@
+/* LoginHeader.css */
+
+.login-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding: 0.75rem 2rem;
+}
+
+.header-transparent {
+  background: rgba(255, 255, 255, 0.1); /* Light background instead of fully transparent */
+  backdrop-filter: blur(5px); /* Slight blur for readability */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2); /* Subtle emerald border */
+}
+
+.header-scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #10b981; /* Solid emerald border when scrolled */
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Link */
+.logo-link {
+  text-decoration: none;
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* 3D Cube Container - ENHANCED COLORS */
+.login-cube-container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  perspective: 1000px;
+}
+
+.login-cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
+}
+
+.login-cube-face {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #10b981; /* SOLID emerald green */
+  border: 2px solid #059669; /* Darker emerald border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 20px rgba(16, 185, 129, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+
+/* Different shades for each face to enhance 3D effect */
+.login-cube-face.front {
+  background: #10b981; /* Emerald */
+}
+.login-cube-face.back {
+  background: #0d9488; /* Teal-emerald */
+}
+.login-cube-face.right {
+  background: #059669; /* Dark emerald */
+}
+.login-cube-face.left {
+  background: #047857; /* Deeper emerald */
+}
+.login-cube-face.top {
+  background: #34d399; /* Light emerald */
+}
+.login-cube-face.bottom {
+  background: #065f46; /* Darkest emerald */
+}
+
+/* Hover effect - even brighter */
+.login-header:hover .login-cube-face {
+  filter: brightness(1.1);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+}
+
+.login-cube-face.front {
+  transform: translateZ(25px);
+}
+.login-cube-face.back {
+  transform: rotateY(180deg) translateZ(25px);
+}
+.login-cube-face.right {
+  transform: rotateY(90deg) translateZ(25px);
+}
+.login-cube-face.left {
+  transform: rotateY(-90deg) translateZ(25px);
+}
+.login-cube-face.top {
+  transform: rotateX(90deg) translateZ(25px);
+}
+.login-cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(25px);
+}
+
+.cube-face-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  filter: brightness(1.2);
+  mix-blend-mode: screen; /* Helps logo stand out on colored background */
+}
+
+/* Cube Effects */
+.cube-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cube-glow.active {
+  opacity: 0.8; /* Increased opacity */
+}
+
+.cube-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cube-shine.active {
+  opacity: 0.6;
+  animation: shine 1s ease;
+}
+
+/* Logo Text - DARKER for better visibility */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  transition: color 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for readability */
+}
+
+/* Transparent state - DARKER text */
+.header-transparent .logo-title {
+  color: #1f2937; /* Dark gray - much more visible */
+}
+
+/* Scrolled state - emerald green */
+.header-scrolled .logo-title {
+  color: #10b981;
+}
+
+.logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Transparent state - DARKER badge */
+.header-transparent .logo-badge {
+  background: rgba(16, 185, 129, 0.2); /* Emerald tint background */
+  color: #065f46; /* Dark emerald text */
+  border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+/* Scrolled state */
+.header-scrolled .logo-badge {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.logo-slogan {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  margin: 4px 0 0;
+  transition: color 0.3s ease;
+}
+
+/* Transparent state - DARKER slogan */
+.header-transparent .logo-slogan {
+  color: #4b5563; /* Medium gray - visible */
+}
+
+.header-transparent .logo-slogan svg {
+  color: #10b981; /* Keep emerald icon */
+}
+
+/* Scrolled state */
+.header-scrolled .logo-slogan {
+  color: #6b7280;
+}
+
+.header-scrolled .logo-slogan svg {
+  color: #10b981;
+}
+
+/* Header Right Section */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.register-prompt {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 20px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+}
+
+/* Transparent state - MORE VISIBLE */
+.header-transparent .register-prompt {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+/* Scrolled state */
+.header-scrolled .register-prompt {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.prompt-text {
+  font-size: 14px;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+/* Transparent state - DARKER text */
+.header-transparent .prompt-text {
+  color: #1f2937; /* Dark gray */
+}
+
+/* Scrolled state */
+.header-scrolled .prompt-text {
+  color: #4b5563;
+}
+
+.register-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600; /* Bolder */
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Transparent state - EMERALD GREEN button */
+.header-transparent .register-link {
+  background: #10b981; /* Solid emerald */
+  color: white;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.header-transparent .register-link:hover {
+  background: #059669; /* Darker on hover */
+  transform: translateX(3px);
+  box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Scrolled state */
+.header-scrolled .register-link {
+  background: #10b981;
+  color: white;
+}
+
+.header-scrolled .register-link:hover {
+  background: #059669;
+  transform: translateX(3px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+.register-link svg {
+  transition: transform 0.3s ease;
+}
+
+.register-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Animations */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .logo-title {
+    font-size: 18px;
+  }
+  
+  .logo-badge {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+  
+  .logo-slogan {
+    font-size: 10px;
+  }
+  
+  .prompt-text {
+    display: none;
+  }
+  
+  .register-prompt {
+    padding: 4px 12px;
+  }
+  
+  .register-link {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-cube-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .login-cube-face {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .login-cube-face.front {
+    transform: translateZ(20px);
+  }
+  .login-cube-face.back {
+    transform: rotateY(180deg) translateZ(20px);
+  }
+  .login-cube-face.right {
+    transform: rotateY(90deg) translateZ(20px);
+  }
+  .login-cube-face.left {
+    transform: rotateY(-90deg) translateZ(20px);
+  }
+  .login-cube-face.top {
+    transform: rotateX(90deg) translateZ(20px);
+  }
+  .login-cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(20px);
+  }
+  
+  .cube-face-logo {
+    width: 28px;
+    height: 28px;
+  }
+}

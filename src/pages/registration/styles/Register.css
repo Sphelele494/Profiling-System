@@ -1,0 +1,1145 @@
+/* src/pages/registration/styles/register.css */
+/* PURE EMERALD (#10b981) AND WHITE THEME */
+/* COMPLETELY SCOPED - ONLY affects elements inside .register-page */
+
+/* ===== RESET & BASE STYLES ===== */
+.register-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: #1e293b;
+  padding-top: 80px; /* Space for fixed header */
+}
+
+/* ===== BACKGROUND EFFECTS ===== */
+.register-page .register-bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== MAIN CONTENT ===== */
+.register-page .register-main-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+.register-page .register-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ===== HEADER SECTION ===== */
+.register-page .register-header-section {
+  text-align: center;
+  animation: registerFadeIn 0.8s ease;
+}
+
+.register-page .register-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #f0fdf4, #ffffff);
+  border-radius: 40px;
+  border: 2px solid #10b981;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.register-page .register-type-badge.jobseeker {
+  border-color: #10b981;
+}
+
+.register-page .register-type-badge.recruiter {
+  border-color: #059669;
+}
+
+.register-page .register-type-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.register-page .register-type-text {
+  font-weight: 600;
+  color: #10b981;
+  font-size: 1rem;
+}
+
+.register-page .register-type-badge.recruiter .register-type-text {
+  color: #059669;
+}
+
+.register-page .register-welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 30px;
+  color: #10b981;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-badge-spark {
+  animation: registerSpin 3s linear infinite;
+}
+
+/* ===== TITLE SECTION ===== */
+.register-page .register-title-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.register-page .register-title-main {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.register-page .register-title-highlight {
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.register-page .register-title-steps {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.register-page .register-step-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.02);
+}
+
+.register-page .register-step-title.active {
+  opacity: 1;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.05);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-description {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ===== STATS GRID ===== */
+.register-page .register-stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.register-page .register-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.register-page .register-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(16, 185, 129, 0.1);
+  border-color: #10b981;
+}
+
+.register-page .register-stat-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 12px;
+  color: #10b981;
+}
+
+.register-page .register-stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-page .register-stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #10b981;
+  line-height: 1.2;
+}
+
+.register-page .register-stat-label {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* ===== FORM CARD ===== */
+.register-page .register-form-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+}
+
+.register-page .register-form-card.transitioning {
+  opacity: 0.8;
+  transform: scale(0.99);
+}
+
+/* ===== ERROR ALERT ===== */
+.register-page .register-error-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.register-page .register-error-icon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.register-page .register-error-content {
+  flex: 1;
+}
+
+.register-page .register-error-title {
+  font-weight: 600;
+  color: #b91c1c;
+  margin-bottom: 0.25rem;
+}
+
+.register-page .register-error-message {
+  color: #7f1d1d;
+  font-size: 0.9rem;
+}
+
+/* ===== STEP CONTENT ===== */
+.register-page .register-step-content {
+  min-height: 400px;
+  animation: registerFadeSlide 0.5s ease;
+}
+
+/* ===== FORM GRID ===== */
+.register-page .register-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.register-page .register-form-group {
+  position: relative;
+}
+
+.register-page .register-form-group.full-width {
+  grid-column: span 2;
+}
+
+/* ===== FORM LABELS ===== */
+.register-page .register-form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.register-page .register-label-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 8px;
+  color: #10b981;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-label-icon.valid {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.register-page .register-label-icon.invalid {
+  background: rgba(239, 68, 68, 0.05);
+  color: #ef4444;
+}
+
+/* ===== FORM INPUTS ===== */
+.register-page .register-input-wrapper {
+  position: relative;
+}
+
+.register-page .register-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #10b981;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.register-page .register-form-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 12px;
+  color: #1e293b;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-form-input:focus {
+  outline: none;
+  border-color: #10b981;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-form-input.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.register-page .register-form-input.valid {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+/* ===== FORM SELECT ===== */
+.register-page .register-select-wrapper {
+  position: relative;
+}
+
+.register-page .register-form-select {
+  width: 100%;
+  padding: 0.875rem 2.5rem 0.875rem 1rem;
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 12px;
+  color: #1e293b;
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-form-select:focus {
+  outline: none;
+  border-color: #10b981;
+  background: white;
+}
+
+.register-page .register-select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #10b981;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ===== ERROR TEXT ===== */
+.register-page .register-error-text {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  padding-left: 0.75rem;
+}
+
+.register-page .register-hint-text {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  padding-left: 0.75rem;
+}
+
+/* ===== PASSWORD SECTION ===== */
+.register-page .register-password-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.register-page .register-password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #10b981;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.register-page .register-password-toggle:hover {
+  opacity: 1;
+}
+
+/* ===== PASSWORD STRENGTH ===== */
+.register-page .register-password-strength {
+  margin-top: 0.75rem;
+}
+
+.register-page .register-strength-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.register-page .register-strength-value {
+  font-weight: 600;
+}
+
+.register-page .register-strength-value.weak { color: #ef4444; }
+.register-page .register-strength-value.medium { color: #f59e0b; }
+.register-page .register-strength-value.strong { color: #10b981; }
+
+.register-page .register-strength-bar {
+  height: 4px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.register-page .register-strength-fill {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.register-page .register-strength-fill.weak { background: #ef4444; }
+.register-page .register-strength-fill.medium { background: #f59e0b; }
+.register-page .register-strength-fill.strong { background: #10b981; }
+
+.register-page .register-strength-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.register-page .register-rule {
+  color: #94a3b8;
+}
+
+.register-page .register-rule.met {
+  color: #10b981;
+}
+
+/* ===== SKILLS SECTION ===== */
+.register-page .register-skills-search {
+  margin-bottom: 1.5rem;
+}
+
+.register-page .register-search-wrapper {
+  position: relative;
+}
+
+.register-page .register-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #10b981;
+  opacity: 0.5;
+}
+
+.register-page .register-search-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 12px;
+  color: #1e293b;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-search-input:focus {
+  outline: none;
+  border-color: #10b981;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.register-page .register-skill-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-skill-card:hover {
+  border-color: #10b981;
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-skill-card.selected {
+  background: #f0fdf4;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-skill-icon {
+  font-size: 1.5rem;
+}
+
+.register-page .register-skill-name {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.register-page .register-skill-check {
+  color: #10b981;
+}
+
+.register-page .register-skills-count {
+  text-align: right;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* ===== LANGUAGES SECTION ===== */
+.register-page .register-languages-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.register-page .register-language-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 30px;
+  color: #1e293b;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-language-tag:hover {
+  border-color: #10b981;
+  background: white;
+  transform: translateY(-2px);
+}
+
+.register-page .register-language-tag.selected {
+  background: #f0fdf4;
+  border-color: #10b981;
+  color: #10b981;
+}
+
+/* ===== REVIEW SECTION ===== */
+.register-page .register-review-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-page .register-review-card {
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.register-page .register-review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-review-header h3 {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.register-page .register-review-edit {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 30px;
+  color: #64748b;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-review-edit:hover {
+  background: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+.register-page .register-review-content {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.register-page .register-review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.register-page .register-review-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.register-page .register-review-value {
+  font-size: 1rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.register-page .register-review-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.register-page .register-review-tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #10b981;
+}
+
+/* ===== AGREEMENTS ===== */
+.register-page .register-agreements {
+  margin-top: 1.5rem;
+}
+
+.register-page .register-agreement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.register-page .register-agreement-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.2rem;
+  accent-color: #10b981;
+}
+
+.register-page .register-agreement-text {
+  flex: 1;
+  color: #1e293b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.register-page .register-agreement-highlight {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* ===== NAVIGATION BUTTONS ===== */
+.register-page .register-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.register-page .register-nav-button {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.register-page .register-nav-prev {
+  background: white;
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  color: #64748b;
+}
+
+.register-page .register-nav-prev:hover:not(:disabled) {
+  border-color: #10b981;
+  color: #10b981;
+  transform: translateX(-4px);
+}
+
+.register-page .register-nav-next {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  margin-left: auto;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.register-page .register-nav-next:hover:not(:disabled) {
+  transform: translateX(4px);
+  box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3);
+}
+
+.register-page .register-nav-submit {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  margin-left: auto;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.register-page .register-nav-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+}
+
+.register-page .register-nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== SUPPORT SECTION ===== */
+.register-page .register-support-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.05);
+}
+
+.register-page .register-support-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.register-page .register-support-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 50%;
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-support-text h4 {
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.register-page .register-support-text p {
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.register-page .register-support-link {
+  color: #10b981;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.register-page .register-support-link:hover {
+  gap: 0.75rem;
+  color: #059669;
+}
+
+/* ===== TIMELINE ===== */
+.register-page .register-timeline {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.register-page .register-timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  min-width: 160px;
+}
+
+.register-page .register-timeline-number {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 2px solid #10b981;
+  border-radius: 50%;
+  color: #10b981;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.register-page .register-timeline-info h5 {
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.register-page .register-timeline-info p {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ===== FOOTER ===== */
+.register-page .register-footer {
+  position: relative;
+  z-index: 10;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-top: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.register-page .register-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-page .register-footer-info {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.register-page .register-footer-links {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.register-page .register-footer-links span {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.register-page .register-footer-links span:hover {
+  color: #10b981;
+}
+
+.register-page .register-footer-divider {
+  color: #cbd5e1;
+}
+
+.register-page .register-footer-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 1rem;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 30px;
+  color: #10b981;
+  font-size: 0.85rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes registerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes registerFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes registerSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+.register-page .register-skills-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.register-page .register-skills-grid::-webkit-scrollbar-track {
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 10px;
+}
+
+.register-page .register-skills-grid::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 10px;
+}
+
+.register-page .register-skills-grid::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .register-page .register-stats-grid {
+    gap: 1rem;
+  }
+  
+  .register-page .register-stat-card {
+    min-width: 160px;
+  }
+  
+  .register-page .register-support-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .register-page .register-timeline {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-page {
+    padding-top: 70px;
+  }
+  
+  .register-page .register-main-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .register-page .register-title-main {
+    font-size: 2rem;
+  }
+  
+  .register-page .register-title-steps {
+    flex-wrap: wrap;
+  }
+  
+  .register-page .register-stats-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .register-page .register-stat-card {
+    width: 100%;
+  }
+  
+  .register-page .register-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .register-page .register-form-group.full-width {
+    grid-column: span 1;
+  }
+  
+  .register-page .register-password-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .register-page .register-form-card {
+    padding: 1.5rem;
+  }
+  
+  .register-page .register-navigation {
+    flex-direction: column;
+  }
+  
+  .register-page .register-nav-prev,
+  .register-page .register-nav-next,
+  .register-page .register-nav-submit {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .register-page .register-support-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .register-page .register-timeline {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .register-page .register-timeline-item {
+    width: 100%;
+  }
+  
+  .register-page .register-footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .register-page .register-footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-page .register-title-main {
+    font-size: 1.5rem;
+  }
+  
+  .register-page .register-type-badge {
+    padding: 0.4rem 1rem;
+  }
+  
+  .register-page .register-type-icon {
+    font-size: 1.2rem;
+  }
+  
+  .register-page .register-type-text {
+    font-size: 0.9rem;
+  }
+  
+  .register-page .register-welcome-badge {
+    font-size: 0.8rem;
+  }
+  
+  .register-page .register-skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .register-page .register-review-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .register-page .register-footer-links {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  
+  .register-page .register-footer-divider {
+    display: none;
+  }
+}
